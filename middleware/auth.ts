@@ -7,7 +7,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
   }
 
   if(cookieToken.value === "") {
-    return push('/')
+    push('/')
   }
   useLogoutButton().value = true
 })
