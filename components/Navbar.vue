@@ -3,7 +3,7 @@
     <div class="flex">
       <img src="@/assets/images/cloud.jpeg" class="w-[100px] h-[50px]" alt="">
       <h1 class=" text-2xl capitalize pt-2 pl-2"
-        :class="[{'max-[484px]:hidden': isAuthenticated}]">
+        :class="[{'max-[508px]:hidden': isAuthenticated}]">
         weather forecast
       </h1>
     </div>
