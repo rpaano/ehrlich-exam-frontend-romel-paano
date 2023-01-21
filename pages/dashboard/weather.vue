@@ -5,6 +5,9 @@ import auth from '~~/middleware/auth'
 const user = useUser()
 const { go: goRoute } = useRouter()
 const { WEATHER_APP_SECRET } = useRuntimeConfig()
+const city = useCity()
+
+
 
 const back = () => {
   goRoute(-1)
@@ -24,11 +27,11 @@ function formatDate(date: any) {
   return [month, day, year].join('/');
 }
 
-const { data: weather, error } = useAsyncData("city-weather", async () => {
+const { data: weather, error } = await useAsyncData("city-weather", async () => {
   let responce
 
   try {
-    responce = <any>await $fetch(`https://api.openweathermap.org/data/2.5/weather?q=Mandaue`, {
+    responce = <any>await $fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city.value}`, {
       params: {
         units: "imperial",
         appid: WEATHER_APP_SECRET,
@@ -40,11 +43,6 @@ const { data: weather, error } = useAsyncData("city-weather", async () => {
 
   return responce
 })
-
-function sample() {
-  console.log(weather.value.weather[0].description);
-
-}
 
 
 definePageMeta({

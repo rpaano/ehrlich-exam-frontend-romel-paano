@@ -7,7 +7,7 @@
       </div>
       <form @submit.prevent="sudmit">
         <div class="flex mt-10 justify-center">
-          <input type="text" class="iconsearch border border-black w-[250px] rounded-3xl px-10 py-2" placeholder="City">
+          <input type="text" class="iconsearch border border-black w-[250px] rounded-3xl px-10 py-2" placeholder="City" v-model="cityInput">
         </div>
         <div class="flex mt-4 justify-center">
           <input type="submit" value="Display Weather"
@@ -22,9 +22,13 @@
 import auth from '~~/middleware/auth'
 
 const user = useUser()
+const cityInput = ref()
+const { push } = useRouter()
+const city = useCity()
 
-const sudmit = () => {
-
+const sudmit = async () => {
+  city.value = cityInput.value
+  await navigateTo("/dashboard/weather")
 }
 
 definePageMeta({
