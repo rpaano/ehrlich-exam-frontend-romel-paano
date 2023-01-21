@@ -10,5 +10,5 @@ export default defineNuxtRouteMiddleware((to, from) => {
     return push('/dashboard')
   }
 
-  useLogoutButton().value = true
+  useLogoutButton().value = false
 })
