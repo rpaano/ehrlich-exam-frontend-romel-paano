@@ -18,6 +18,7 @@ export default defineNuxtConfig({
       apiURL: 'http://api.ehrlich-exam-backend.test',
       apiBase: '/api',
       githubLoginRedirect: '/auth/redirect',
+      authType: 'bearer',
     }
   },
 
