@@ -1,10 +1,15 @@
 <script setup lang="ts">
+import guest from '~~/middleware/guest';
+
 const { apiURL, githubLoginRedirect } = useRuntimeConfig()
 
 const welcomeMessage = ref<string>("Welcome to the weather forecast web application. Please use your Github account to user the application view the weather in your city.")
 const buttonClasses: string[] = ['border', 'py-2', 'px-4', 'border-r-4', 'border-b-4', 'border-black', 'hover:bg-gray-400', "sm:py-4"]
 const paragrahplasses: string[] = ["sm:py-4", "mb-12"]
 
+definePageMeta({
+  middleware: [guest]
+})
 </script>
 
 <template>
