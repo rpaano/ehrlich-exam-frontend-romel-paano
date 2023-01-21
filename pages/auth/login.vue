@@ -1,12 +1,11 @@
 <script setup lang="ts">
+import { setToken } from '~~/store/AuthState';
+
 const { query: routeQuery } = useRoute()
 
-const email = routeQuery.email
-const token = routeQuery.token
-const type = routeQuery.type
+setToken(<string>routeQuery.token)
 
-const { login } = useAuth()
-
+navigateTo('/dashboard')
 </script>
 
 <template>
