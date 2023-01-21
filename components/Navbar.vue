@@ -14,5 +14,5 @@
 </template>
 
 <script setup lang="ts">
-const isAuthenticated: boolean|null = useCookie("token").value ? true : false
+const isAuthenticated = useLogoutButton()
 </script>
