@@ -1,15 +1,18 @@
-import { ID, Login } from '@/data'
-
 const Authentication = () => {
   const { apiURL, apiBase, authType } = useRuntimeConfig()
 
-  const login = async (cred: Login) => {
-    return await $fetch(`${apiURL}${apiBase}/login`, {
-      method: "POST",
-      body: {
-        ...cred
+  const login = async () => {
+    return <any> await $fetch(`${apiURL}${apiBase}/login`, {
+      method: "GET",
+      headers: {
+        Authorization: `${authType} ${useCookie('token').value}`,
+        Accept: 'application/json',
       },
     })
+    // localStorage.setItem('user', data.user);
+
+    // useCookie('user').value = data.user
+    // useUser().value = data.user
   }
 
   const logout = async () => {

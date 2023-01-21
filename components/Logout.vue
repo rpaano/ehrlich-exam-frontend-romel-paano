@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { logout } = useAuth()
+
 const router = useRouter()
 
 const buttonClasses: string[] = [
@@ -8,6 +8,8 @@ const buttonClasses: string[] = [
 ]
 
 const userLogout = () => {
+  const { logout } = useAuth()
+  
   logout()
   router.push({ path: "/" });
 }
