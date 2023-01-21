@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import guest from '~~/middleware/guest';
 
 const { apiURL, githubLoginRedirect } = useRuntimeConfig()
 
@@ -8,7 +7,6 @@ const buttonClasses: string[] = ['border', 'py-2', 'px-4', 'border-r-4', 'border
 const paragrahplasses: string[] = ["sm:py-4", "mb-12"]
 
 definePageMeta({
-  middleware: [guest]
 })
 </script>
 
