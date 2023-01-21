@@ -28,7 +28,7 @@ const city = useCity()
 
 const sudmit = async () => {
   city.value = cityInput.value
-  await navigateTo("/dashboard/weather")
+  await navigateTo("/screen/weather")
 }
 
 definePageMeta({
