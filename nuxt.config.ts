@@ -19,6 +19,7 @@ export default defineNuxtConfig({
       apiBase: '/api',
       githubLoginRedirect: '/auth/redirect',
       authType: 'Bearer',
+      WEATHER_APP_SECRET: process.env.WEATHER_APP_SECRET,
     }
   },
 
