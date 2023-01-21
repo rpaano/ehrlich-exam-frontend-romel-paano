@@ -22,5 +22,15 @@ export default defineNuxtConfig({
       WEATHER_APP_SECRET: process.env.WEATHER_APP_SECRET,
     }
   },
+  app: {
+    head: {
+      charset: 'utf-16',
+      viewport: 'width=500, initial-scale=1',
+      title: 'Weather App Ehrlich Exam',
+      meta: [
+        { name: 'description', content: 'Weather App Ehrlich Exam' }
+      ],
+    }
+  }
 
 })
