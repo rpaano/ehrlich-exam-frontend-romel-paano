@@ -1,7 +1,7 @@
 import { ID, Login } from '@/data'
 
-const Login = () => {
-  const { apiURL, apiBase } = useRuntimeConfig()
+const Authentication = () => {
+  const { apiURL, apiBase, authType } = useRuntimeConfig()
 
   const login = async (cred: Login) => {
     return await $fetch(`${apiURL}${apiBase}/login`, {
@@ -13,9 +13,21 @@ const Login = () => {
   }
 
   const logout = async () => {
-    await $fetch(`${apiURL}${apiBase}/logout`, {
+    const data: any = await $fetch(`${apiURL}${apiBase}/logout`, {
+      headers: {
+        Authorization: `${authType} ${useCookie('token').value}`,
+        Accept: 'application/json',
+      },
       method: "DELETE",
     })
+
+    if(data.status = "success") {
+      useCookie('token').value = null
+    }
+
+    useLogoutButton().value = false
+
+    return data
   }
 
   const refreshToken = async () => {
@@ -27,4 +39,4 @@ const Login = () => {
   return { login, logout, refreshToken }
 }
 
-export default Login
+export default Authentication
