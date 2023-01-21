@@ -1,3 +1,1 @@
-// export const useLogin = () => useState('login', () => {
-
-// })
+export const useToken = () => useState<string>('token', () => "")
