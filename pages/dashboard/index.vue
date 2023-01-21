@@ -5,7 +5,9 @@
 </template>
 
 <script setup lang="ts">
-import auth from '@/middlleware/auth'
+
+import auth from '~~/middleware/auth';
+
 
 definePageMeta({
   middleware: [auth]
