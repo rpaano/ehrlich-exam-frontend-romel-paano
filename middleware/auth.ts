@@ -2,9 +2,12 @@ export default defineNuxtRouteMiddleware((to, from) => {
   const { push } = useRouter()
   const cookieToken = useCookie('token')
 
-  if(!cookieToken.value) {
-    push('/')
+  if( typeof cookieToken.value === 'undefined' ) {
+    cookieToken.value = ""
   }
 
-  push(to)
+  if(cookieToken.value === "") {
+    return push('/')
+  }
+  useLogoutButton().value = true
 })
