@@ -5,7 +5,7 @@ const { query: routeQuery } = useRoute()
 
 setToken(<string>routeQuery.token)
 
-navigateTo('/dashboard')
+navigateTo('/screen')
 </script>
 
 <template>
