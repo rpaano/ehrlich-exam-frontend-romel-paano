@@ -11,7 +11,7 @@ definePageMeta({
 </script>
 
 <template>
-  <section class="flex justify-cener">
+  <section class="flex">
     <div class="sm:mx-auto w-[500px] h-[200px] mt-24 mx-10">
       <Paragraph :text="welcomeMessage" :class-name="paragrahplasses" />
       <NuxtLink :href="`${apiURL}${githubLoginRedirect}`" :class="buttonClasses" >Login</NuxtLink>
